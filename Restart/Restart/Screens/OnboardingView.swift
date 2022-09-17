@@ -33,15 +33,7 @@ struct OnboardingView: View {
                 } //: HEADER
                 // MARK: - CENTER
                 ZStack() {
-                    ZStack() {
-                        Circle()
-                            .stroke(.white.opacity(0.2),lineWidth: 40)
-                            .frame(width: 260, height: 260, alignment: .center)
-                        Circle()
-                            .stroke(.white.opacity(0.2),lineWidth: 80)
-                            .frame(width: 260, height: 260, alignment: .center)
-
-                    } //: ZStack
+                    CircleGroupView(ShapeColor: .white, ShapeOpacity: 0.2)
                     Image("character-1")
                         .resizable()
                         .scaledToFit()
@@ -54,15 +46,12 @@ struct OnboardingView: View {
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                         .offset(x: 20)
-                    
                     Capsule().fill(Color.white.opacity(0.2))
                     Capsule().fill(Color.white.opacity(0.2)).padding(8)
-                    
                     HStack() {
                         Capsule().fill(Color("ColorRed")).frame(width: 80)
                         Spacer()
                     }
-                    
                     HStack {
                         ZStack() {
                             Circle().fill(Color("ColorRed"))
@@ -70,7 +59,8 @@ struct OnboardingView: View {
                             Image(systemName: "chevron.right.2").font(.system(size: 24,weight: .bold))
                         }
                         .foregroundColor(.white)
-                        .frame(width: 80, height: 80, alignment: .center).onTapGesture {
+                        .frame(width: 80, height: 80, alignment: .center)
+                        .onTapGesture {
                             isOnboardingViewActive = false
                         }
                         Spacer()
